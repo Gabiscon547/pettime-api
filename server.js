@@ -3,6 +3,9 @@ const express = require("express");
 
 //importar las rutas de autenticación
 const authRoutes = require("./src/routes/authRoutes");
+const petRoutes = require("./src/routes/petRoutes");
+const veterinarianRoutes = require("./src/routes/veterinarianRoutes");
+const appointmentRoutes = require("./src/routes/appointmentRoutes");
 
 //importar la conexión con MongoDB
 const connectDB = require("./src/config/database");
@@ -21,6 +24,9 @@ app.use(express.json());
 
 //conectar las rutas de autenticación
 app.use("/api/auth", authRoutes);
+app.use("/api/pets", petRoutes);
+app.use("/api/veterinarians", veterinarianRoutes);
+app.use("/api/appointments", appointmentRoutes);
 
 //ruta de prueba
 app.get("/", (req, res) => {
