@@ -6,33 +6,33 @@ La API permite gestionar diferentes funcionalidades del sistema mediante servici
 
 ## Tecnologías utilizadas
 
-* Node.js
-* Express
-* MongoDB
-* Mongoose
-* bcrypt
-* Postman
-* Git y GitHub
+- Node.js
+- Express
+- MongoDB
+- Mongoose
+- bcrypt
+- Postman
+- Git y GitHub
 
 ## Servicios disponibles
 
 ### Autenticación
 
-**Registrar usuario**
+#### Registrar usuario
 
-Método: `POST`
+**Método:** `POST`
 
-Ruta:
+**Ruta:**
 
 `/api/auth/register`
 
-Permite registrar un nuevo usuario y validar los datos obligatorios
+Permite registrar un nuevo usuario y validar los datos obligatorios, el correo electrónico y el documento
 
-**Iniciar sesión**
+#### Iniciar sesión
 
-Método: `POST`
+**Método:** `POST`
 
-Ruta:
+**Ruta:**
 
 `/api/auth/login`
 
@@ -40,70 +40,182 @@ Permite verificar el correo electrónico y la contraseña de un usuario registra
 
 ### Mascotas
 
-**Registrar mascota**
+#### Registrar mascota
 
-Método: `POST`
+**Método:** `POST`
 
-Ruta:
+**Ruta:**
 
 `/api/pets`
 
-Permite registrar la información de una mascota y asociarla con su dueño
+Permite registrar una mascota y asociarla con su dueño mediante el ID del usuario
+
+#### Consultar mascotas
+
+**Método:** `GET`
+
+**Ruta:**
+
+`/api/pets`
+
+Permite consultar las mascotas registradas
+
+#### Consultar una mascota
+
+**Método:** `GET`
+
+**Ruta:**
+
+`/api/pets/:id`
+
+Permite consultar la información de una mascota utilizando su identificador
+
+#### Actualizar mascota
+
+**Método:** `PUT`
+
+**Ruta:**
+
+`/api/pets/:id`
+
+Permite actualizar la información de una mascota registrada
+
+#### Eliminar mascota
+
+**Método:** `DELETE`
+
+**Ruta:**
+
+`/api/pets/:id`
+
+Permite eliminar una mascota utilizando su identificador
 
 ### Veterinarios
 
-**Registrar veterinario**
+#### Registrar veterinario
 
-Método: `POST`
+**Método:** `POST`
 
-Ruta:
+**Ruta:**
 
 `/api/veterinarians`
 
 Permite registrar la información de un veterinario
 
+#### Consultar veterinarios
+
+**Método:** `GET`
+
+**Ruta:**
+
+`/api/veterinarians`
+
+Permite consultar los veterinarios registrados
+
+#### Consultar un veterinario
+
+**Método:** `GET`
+
+**Ruta:**
+
+`/api/veterinarians/:id`
+
+Permite consultar la información de un veterinario utilizando su identificador
+
+#### Actualizar veterinario
+
+**Método:** `PUT`
+
+**Ruta:**
+
+`/api/veterinarians/:id`
+
+Permite actualizar la información de un veterinario registrado
+
+#### Eliminar veterinario
+
+**Método:** `DELETE`
+
+**Ruta:**
+
+`/api/veterinarians/:id`
+
+Permite eliminar un veterinario utilizando su identificador
+
 ### Citas
 
-**Registrar cita**
+#### Registrar cita
 
-Método: `POST`
+**Método:** `POST`
 
-Ruta:
+**Ruta:**
 
 `/api/appointments`
 
 Permite agendar una cita asociando una mascota, un veterinario, un servicio, una fecha y una hora
 
-**Consultar citas**
+#### Consultar citas
 
-Método: `GET`
+**Método:** `GET`
 
-Ruta:
+**Ruta:**
 
 `/api/appointments`
 
 Permite consultar las citas registradas
 
-**Eliminar cita**
+#### Consultar una cita
 
-Método: `DELETE`
+**Método:** `GET`
 
-Ruta:
+**Ruta:**
 
 `/api/appointments/:id`
 
-Permite eliminar una cita registrada utilizando su identificador
+Permite consultar una cita utilizando su identificador
+
+#### Actualizar cita
+
+**Método:** `PUT`
+
+**Ruta:**
+
+`/api/appointments/:id`
+
+Permite actualizar la información de una cita registrada
+
+#### Eliminar cita
+
+**Método:** `DELETE`
+
+**Ruta:**
+
+`/api/appointments/:id`
+
+Permite eliminar una cita utilizando su identificador
+
+#### Consultar historial de una mascota
+
+**Método:** `GET`
+
+**Ruta:**
+
+`/api/appointments/pet/:petId/history`
+
+Permite consultar el historial de citas de una mascota mediante su identificador
 
 ## Validaciones
 
 La API realiza validaciones para:
 
-* Campos obligatorios
-* Correo electrónico ya registrado
-* Documento ya registrado
-* Credenciales incorrectas durante el inicio de sesión
-* Datos requeridos para registrar mascotas
-* Datos requeridos para registrar citas
+- Campos obligatorios
+- Correo electrónico ya registrado
+- Documento ya registrado
+- Credenciales incorrectas durante el inicio de sesión
+- Datos requeridos para registrar mascotas
+- Datos requeridos para registrar veterinarios
+- Datos requeridos para registrar citas
+- Identificadores relacionados entre usuarios, mascotas, veterinarios y citas
 
 Las contraseñas se almacenan protegidas mediante `bcrypt`
 
@@ -113,7 +225,7 @@ Para ejecutar el proyecto localmente se deben instalar las dependencias:
 
 `npm install`
 
-Luego iniciar el servidor:
+Luego se inicia el servidor:
 
 `node server.js`
 
@@ -131,6 +243,6 @@ Los servicios fueron probados inicialmente mediante Postman y posteriormente int
 
 El proyecto utiliza Git para el control de versiones y GitHub como repositorio remoto
 
-Repositorio:
+**Repositorio:**
 
-`https://github.com/Gabiscon547/pettime-api`
+https://github.com/Gabiscon547/pettime-api
